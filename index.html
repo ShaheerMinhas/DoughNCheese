@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dough & Cheese — Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000;
+      --accent:#f2c100; /* yellow */
+      --muted:#222;
+      --card:#111;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#fff}
+    header{position:fixed;inset:0 0 auto 0;height:84px;display:flex;align-items:center;justify-content:space-between;padding:12px 6%;z-index:30;background:linear-gradient(180deg,rgba(0,0,0,0.45),transparent)}
+    .brand{display:flex;align-items:center;gap:16px}
+    .brand img{height:56px}
+    .brand h1{margin:0;font-size:22px;letter-spacing:1px;color:var(--accent)}
+    nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600;opacity:0.9}
+
+    main{padding-top:110px}
+
+    /* Hero */
+    .hero{min-height:80vh;display:grid;grid-template-columns:1fr 420px;gap:40px;padding:48px 6%;align-items:center}
+    .hero-left{max-width:780px}
+    .tag{color:var(--accent);font-weight:700;letter-spacing:1px}
+    .hero h2{font-size:48px;margin:8px 0 12px}
+    .hero p{color:#ddd;line-height:1.6}
+    .cta{margin-top:20px}
+    .btn{background:var(--accent);color:#000;border:none;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+
+    /* Right card with menu image and quick info */
+    .panel{background:linear-gradient(180deg,var(--card),#0c0c0c);padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+    .panel img{width:100%;border-radius:8px;display:block}
+    .hours{margin-top:12px;color:#ddd;font-size:14px}
+
+    /* Menu section */
+    #menu{padding:64px 6%;}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .menu-column{background:var(--glass);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-height:420px;transform:translateY(40px);opacity:0;transition:all .8s ease}
+    .menu-column.show{transform:none;opacity:1}
+    .menu-column h3{color:var(--accent);margin-top:0}
+    .item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.04)}
+    .item small{display:block;color:#ddd;opacity:0.85}
+
+    /* Big menu image (styling similar to reference) */
+    .big-menu{margin-top:24px;padding:18px;background:linear-gradient(180deg,#111,#0b0b0b);border-radius:12px}
+    .big-menu img{width:100%;border-radius:10px}
+
+    /* Map + Contact */
+    .info-row{display:flex;gap:32px;padding:48px 6%;align-items:flex-start}
+    .map-card, .contact-card{flex:1;background:var(--card);padding:22px;border-radius:12px}
+    .map-card img{width:100%;border-radius:8px}
+    .contact-card form{display:grid;gap:12px}
+    input,textarea{background:#000;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:#fff}
+    .small{font-size:13px;color:#ccc}
+
+    footer{padding:28px 6%;text-align:center;color:#999}
+
+    /* Responsive */
+    @media(max-width:1000px){.hero{grid-template-columns:1fr;padding:36px 6%}.menu-grid{grid-template-columns:1fr}.info-row{flex-direction:column}}
+
+    /* subtle entrance animations */
+    .fade-up{opacity:0;transform:translateY(36px);transition:all .8s cubic-bezier(.2,.9,.3,1)}
+    .fade-up.show{opacity:1;transform:none}
+
+    /* accent underline */
+    .section-title{display:flex;align-items:center;gap:12px}
+    .section-title::before{content:'';width:48px;height:4px;background:var(--accent);border-radius:4px}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="./logo.jpg" alt="Dough & Cheese logo">
+      <h1>Dough & Cheese</h1>
+    </div>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#map">Map</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero fade-up" id="hero">
+      <div class="hero-left">
+        <div class="tag">pizza & manoosh</div>
+        <h2>Authentic dough. Melty cheese. Bold flavours.</h2>
+        <p>Welcome to Dough & Cheese — a local favourite inspired by modern street pizza and traditional manoush. Below is our featured menu (dummy data) — swipe/scroll to explore.
+        </p>
+        <div class="cta"><button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">See Menu</button></div>
+
+        <div class="big-menu" style="margin-top:26px">
+          <h4 class="small">Featured</h4>
+          <div style="display:flex;gap:12px;margin-top:10px">
+            <div style="flex:1">
+              <div style="background:linear-gradient(180deg,#0f0f0f,#0b0b0b);padding:12px;border-radius:8px;min-height:120px">
+                <strong style="color:var(--accent)">Cheese Burst Pizza</strong>
+                <div class="small">Tomato base, mozzarella overload, herb oil drizzle — $13</div>
+              </div>
+            </div>
+            <div style="width:140px">
+              <img src="/mnt/data/unnamed (1).jpg" alt="menu photo" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="panel">
+        <img src="/mnt/data/unnamed (1).jpg" alt="pizza">
+        <div class="hours">
+          <div style="display:flex;justify-content:space-between"><span class="small">Open:</span><strong>11:00 — 23:00</strong></div>
+          <div style="display:flex;justify-content:space-between;margin-top:6px"><span class="small">Delivery:</span><strong>Available</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+      <div class="section-title"><h3 style="margin:0;color:#fff">Menu</h3></div>
+      <p class="small" style="margin-top:8px">(Dummy items copied & adapted from provided image — prices are illustrative)</p>
+
+      <div class="menu-grid" style="margin-top:18px">
+        <div class="menu-column" id="col1">
+          <h3>Classic Pizza</h3>
+          <div class="item"><div><strong>Margherita</strong><small>Tomato Base, Mozzarella, Oregano</small></div><div>$10</div></div>
+          <div class="item"><div><strong>Pepperoni & Cheese</strong><small>Pepperoni, Mozzarella</small></div><div>$13</div></div>
+          <div class="item"><div><strong>Ham & Cheese</strong><small>Shredded Ham (Beef), Mozzarella</small></div><div>$12</div></div>
+          <div class="item"><div><strong>Capricciosa</strong><small>Mushrooms, Olives, Ham, Mozzarella</small></div><div>$15</div></div>
+          <div class="item"><div><strong>Chicken & Pineapple</strong><small>Chicken Strips, Pineapple, Mozzarella</small></div><div>$15</div></div>
+          <div class="item"><div><strong>Garlic & Herb</strong><small>Garlic Base, Mozzarella, Herbs</small></div><div>$12</div></div>
+        </div>
+
+        <div class="menu-column" id="col2">
+          <h3>Gourmet Pizza</h3>
+          <div class="item"><div><strong>Peri Peri Chicken</strong><small>Marinated Chicken, Peri Peri Sauce</small></div><div>$15</div></div>
+          <div class="item"><div><strong>BBQ Chicken</strong><small>BBQ Sauce, Chicken, Onions, Capsicum</small></div><div>$15</div></div>
+          <div class="item"><div><strong>Fajita Chicken</strong><small>Fajita Spice, Capsicum, Onions, Mozzarella</small></div><div>$16</div></div>
+          <div class="item"><div><strong>Pesto Chicken</strong><small>Pesto, Chicken, Fresh Basil</small></div><div>$16</div></div>
+          <div class="item"><div><strong>Paneer Tikka</strong><small>Paneer, Spices, Capsicum</small></div><div>$14</div></div>
+          <div class="item"><div><strong>Iconic Margherita</strong><small>Cherry Tomato, Fresh Basil, Mozzarella</small></div><div>$12</div></div>
+        </div>
+
+        <div class="menu-column" id="col3">
+          <h3>Manoosh & Sides</h3>
+          <div class="item"><div><strong>Zaatar (Oregano)</strong><small>Traditional</small></div><div>$4.5</div></div>
+          <div class="item"><div><strong>Zaatar & Cheese</strong><small>Classic combo</small></div><div>$11</div></div>
+          <div class="item"><div><strong>Meat & Cheese</strong><small>Lahem, Mozzarella</small></div><div>$12</div></div>
+          <div class="item"><div><strong>Cheese Top Oregano</strong><small>Blended 3 cheeses, Oregano</small></div><div>$11</div></div>
+          <div class="item"><div><strong>Feta & Parsley</strong><small>Feta cheese, Olives, Yogurt</small></div><div>$12</div></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- MAP + CONTACT -->
+    <section id="map-contact" style="padding-bottom:40px">
+      <div class="info-row">
+        <div class="map-card fade-up" id="map">
+          <h4 style="color:var(--accent);margin-top:0">Find Us Here</h4>
+          <p class="small">440B High Street Penrith 2750 NSW</p>
+          <img src="./map.png" alt="Australia map">
+        </div>
+
+        <div class="contact-card fade-up" id="contact">
+          <h4 style="color:var(--accent);margin-top:0">Contact Us</h4>
+          <p class="small">Email: doughncheese@outlook.com • Phone: 02 7209 7257</p>
+          <form onsubmit="event.preventDefault();alert('Message sent (dummy)');this.reset();">
+            <input required placeholder="Your name" />
+            <input required placeholder="Email or phone" />
+            <textarea rows="5" placeholder="Your message"></textarea>
+            <div style="display:flex;gap:10px;align-items:center">
+              <button class="btn" style="margin-top:6px">Send Message</button>
+              <div class="small" style="margin-left:6px;color:#bbb">Or call us during opening hours</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="max-width:900px;margin:0 auto">© <strong>Dough & Cheese</strong> — pizza & manoosh </div>
+    </footer>
+  </main>
+
+  <script>
+    // intersection observer for reveal animations
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          e.target.classList.remove('fade-up');
+        }
+      })
+    },{threshold:0.18});
+
+    document.querySelectorAll('.fade-up, .menu-column').forEach(el=>io.observe(el));
+
+    // small scroll effect: header darken on scroll
+    window.addEventListener('scroll',()=>{
+      const h = document.querySelector('header');
+      if(window.scrollY>40) h.style.backdropFilter='saturate(120%) blur(6px)'; else h.style.backdropFilter='none';
+    });
+  </script>
+</body>
+</html>
