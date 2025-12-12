@@ -1,0 +1,111 @@
+:root {
+    --accent: #f2c100;
+    --bg: #000;
+  }
+  
+  /* NAVBAR ONLY */
+  .nav-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    padding: 12px 6%;
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .brand .logo {
+    height: 50px;
+    border-radius: 6px;
+  }
+  
+  .brand h1 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 22px;
+  }
+  
+  /* Desktop menu */
+  .nav-links {
+    display: flex;
+    gap: 26px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  
+  /* Hamburger – hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .bar {
+    width: 28px;
+    height: 3px;
+    background: white;
+    transition: 0.3s ease;
+  }
+  
+  /* Hamburger animations */
+  .rotate1 {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .fade {
+    opacity: 0;
+  }
+  
+  .rotate3 {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  /* ----------------- MOBILE RULES ----------------- */
+  @media (max-width: 900px) {
+  
+    /* SHOW hamburger */
+    .hamburger {
+      display: flex;
+    }
+  
+    /* HIDE desktop menu by default */
+    .nav-links {
+      position: absolute;
+      top: 84px;
+      left: 0;
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      background: #000;
+      padding: 20px 0;
+      gap: 20px;
+      text-align: center;
+    }
+  
+    /* SHOW menu when toggled */
+    .nav-links.show {
+      display: flex;
+    }
+  }
+  
