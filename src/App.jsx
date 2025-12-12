@@ -3,8 +3,8 @@ import "./index.css";
 
 // local images
 import logo from "./assets/logo.jpg";
-import ftrdpizza from "/ftrd-pizza.png";
-import mapImg from "./assets/map.png";
+import ftrdpizza from "/ftrd-pizza.webp";
+import mapImg from "/map.webp";
 import Navbar from "./components/Navbar";
 import menuImg from "./assets/menuImg1.jpg";
 

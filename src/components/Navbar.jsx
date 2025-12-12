@@ -8,7 +8,7 @@ export default function Navbar() {
     <header className="nav-header">
       <div className="nav-container">
         <div className="brand">
-          <img src="/logo.jpg" alt="logo" className="logo" />
+          <img src="/logo.webp" alt="logo" className="logo" />
           <h1>Dough & Cheese</h1>
         </div>
 
